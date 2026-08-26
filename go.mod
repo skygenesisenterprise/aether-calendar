@@ -1,4 +1,4 @@
-module github.com/skygenesisenterprise/zenthcloud
+module github.com/skygenesisenterprise/aether-calendar
 
 go 1.25.5
 

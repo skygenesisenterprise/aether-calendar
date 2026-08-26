@@ -1,7 +1,7 @@
 {
-  "name": "@zenthcloud/prisma",
+  "name": "@aether-calendar/prisma",
   "version": "1.0.0",
-  "description": "Prisma schema and database layer for the ZenthCloud Database Layer.",
+  "description": "Prisma schema and database layer for the Aether Calendar Database Layer.",
   "private": true,
   "main": "schema.prisma",
   "scripts": {
