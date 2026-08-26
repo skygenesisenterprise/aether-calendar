@@ -1,7 +1,7 @@
 {
-  "name": "zenthcloud",
+  "name": "aether-calendar",
   "version": "1.0.0",
-  "description": "An open-source, sovereign and ethical cloud platform built for transparency, control, and modular infrastructure.",
+  "description": "Aether Calendar is a lightweight, open-source client built for privacy, speed, and seamless integration within the Aether Office ecosystem.",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -34,7 +34,7 @@
     "db:studio": "prisma studio",
     "db:seed": "prisma db seed",
     "cli": "pnpm --filter cli cli",
-    "docker:build": "docker build -t aether-mailer .",
+    "docker:build": "docker build -t aether-calendar .",
     "docker:run": "docker-compose up -d",
     "docker:stop": "docker-compose down",
     "prepare": "husky install",
@@ -67,7 +67,7 @@
   "packageManager": "pnpm@8.15.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/skygenesisenterprise/zenthcloud.git"
+    "url": "https://github.com/skygenesisenterprise/aether-calendar.git"
   },
   "keywords": [
     "news",
@@ -78,15 +78,15 @@
     "typescript"
   ],
   "author": {
-    "name": "ZenthCloud Enterprise",
-    "email": "developer@zenthcloud.com",
-    "url": "https://zenthcloud.com"
+    "name": "Sky Genesis Enterprise",
+    "email": "developer@skygenesisenterprise.com",
+    "url": "https://skygenesisenterprise.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/skygenesisenterprise/zenthcloud/issues"
+    "url": "https://github.com/skygenesisenterprise/aether-calendar/issues"
   },
-  "homepage": "https://github.com/skygenesisenterprise/zenthcloud#readme",
+  "homepage": "https://github.com/skygenesisenterprise/aether-calendar#readme",
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix --quiet",
