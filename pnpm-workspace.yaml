@@ -1,4 +1,9 @@
+packages:
+  - "apps"
+  - "packages"
+  - "packages/cli"
+  - "packages/bot"
+
 ignoredBuiltDependencies:
-  - '@tailwindcss/oxide'
   - sharp
   - unrs-resolver
