@@ -10,7 +10,7 @@ services:
         NODE_ENV: ${NODE_ENV:-development}
         BUILD_STATIC: ${BUILD_STATIC:-1}
         DATABASE_URL: postgresql://${PG_USER:-postgres}:${PG_PASS:-postgres}@postgresql:5432/${PG_DB:-postgres}?sslmode=disable
-    image: skygenesisenterprise/zenthcloud:${APP_IMAGE_TAG:-latest}
+    image: skygenesisenterprise/aether-calendar:${APP_IMAGE_TAG:-latest}
     restart: unless-stopped
     expose:
       - "3000"
@@ -47,7 +47,7 @@ services:
         NODE_ENV: ${NODE_ENV:-development}
         BUILD_STATIC: ${BUILD_STATIC:-1}
         DATABASE_URL: postgresql://${PG_USER:-postgres}:${PG_PASS:-postgres}@postgresql:5432/${PG_DB:-postgres}?sslmode=disable
-    image: skygenesisenterprise/zenthcloud:${APP_IMAGE_TAG:-latest}
+    image: skygenesisenterprise/aether-calendar:${APP_IMAGE_TAG:-latest}
     restart: unless-stopped
     expose:
       - "8080"
@@ -76,14 +76,14 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD:-redis-dev-password}
       REDIS_DB: "0"
       REDIS_URL: redis://default:${REDIS_PASSWORD:-redis-dev-password}@redis:6379/0
-      REDIS_KEY_PREFIX: zenthcloud:v1
+      REDIS_KEY_PREFIX: aether-calendar:v1
       JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
-      JWT_ISSUER: ${JWT_ISSUER:-zenthcloud}
-      AUTH_COOKIE_DOMAIN: ${AUTH_COOKIE_DOMAIN:-.zenthcloud.localhost}
-      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://zenthcloud.localhost,http://api.zenthcloud.localhost,http://sso.zenthcloud.localhost,http://studios.zenthcloud.localhost,http://media.zenthcloud.localhost,http://data.zenthcloud.localhost,http://rabbitmq.zenthcloud.localhost,http://search.zenthcloud.localhost,http://localhost:3000,http://127.0.0.1:8081}
+      JWT_ISSUER: ${JWT_ISSUER:-skygenesisenterprise}
+      AUTH_COOKIE_DOMAIN: ${AUTH_COOKIE_DOMAIN:-.calendar.skygenesisenterprise.localhost}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://calendar.skygenesisenterprise.localhost,http://api.calendar.skygenesisenterprise.localhost,http://sso.skygenesisenterprise.localhost,http://studios.aether-calendar.localhost,http://media.aether-calendar.localhost,http://data.aether-calendar.localhost,http://rabbitmq.aether-calendar.localhost,http://search.aether-calendar.localhost,http://localhost:3000,http://127.0.0.1:8081}
       LISTEN__TRUSTED_PROXY_CIDRS: 0.0.0.0/0,::/0
       API_PORT: "8080"
-      HOST: ${DOMAIN_HOST:-zenthcloud.localhost}
+      HOST: ${DOMAIN_HOST:-calendar.skygenesisenterprise.localhost}
       POSTGRESQL__HOST: postgresql
       POSTGRESQL__PORT: "5432"
       POSTGRESQL__USER: ${PG_USER:-postgres}
@@ -113,7 +113,7 @@ services:
       meilisearch:
         condition: service_healthy
     networks:
-      - zenthcloud
+      - aether-calendar
 
   # ─── PostgreSQL ─────────────────────────────────────────────────────────────
   # Runs through the unified entrypoint (`command: postgresql`); applies the
@@ -125,7 +125,7 @@ services:
       args:
         NODE_ENV: ${NODE_ENV:-development}
         BUILD_STATIC: ${BUILD_STATIC:-1}
-    image: skygenesisenterprise/zenthcloud:${APP_IMAGE_TAG:-latest}
+    image: skygenesisenterprise/aether-calendar:${APP_IMAGE_TAG:-latest}
     pull_policy: never
     restart: unless-stopped
     command: postgresql
@@ -158,7 +158,7 @@ services:
     expose:
       - "5432"
     networks:
-      - zenthcloud
+      - aether-calendar
 
   redis:
     image: docker.io/library/redis:8-alpine
@@ -182,7 +182,7 @@ services:
     expose:
       - "6379"
     networks:
-      - zenthcloud
+      - aether-calendar
 
   rabbitmq:
     image: docker.io/library/rabbitmq:3.13-management-alpine
@@ -202,7 +202,7 @@ services:
       - ${RABBITMQ_AMQP_PORT:-5672}:5672
       - ${RABBITMQ_MGMT_PORT:-15672}:15672
     networks:
-      - zenthcloud
+      - aether-calendar
 
   meilisearch:
     image: docker.io/getmeili/meilisearch:v1.7
@@ -221,7 +221,7 @@ services:
     ports:
       - ${MEILI_PORT:-7700}:7700
     networks:
-      - zenthcloud
+      - aether-calendar
 
   # ─── Dev-only services (enable with: docker compose --profile dev up) ────────
 
@@ -239,14 +239,14 @@ services:
       worker:
         condition: service_healthy
     networks:
-      - zenthcloud
+      - aether-calendar
 
   postgres-data:
     image: docker.io/dpage/pgadmin4:latest
     restart: unless-stopped
     profiles: ["dev"]
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@zenthcloud.dev}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@skygenesisenterprise.dev}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
       PGADMIN_LISTEN_PORT: "80"
     volumes:
@@ -258,7 +258,7 @@ services:
       postgresql:
         condition: service_healthy
     networks:
-      - zenthcloud
+      - aether-calendar
 
 volumes:
   postgres-data:
@@ -273,5 +273,5 @@ volumes:
   cdn-data:
 
 networks:
-  zenthcloud:
+  aether-calendar:
     driver: bridge
