@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 
-	"github.com/skygenesisenterprise/zenthcloud/server/src/models"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

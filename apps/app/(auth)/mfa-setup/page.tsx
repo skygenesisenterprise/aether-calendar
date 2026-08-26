@@ -490,7 +490,7 @@ export default function MfaSetupPage() {
               </p>
 
               <Button
-                onClick={() => window.location.href = getDomainUrl('main', '/fr')}
+                onClick={() => window.location.href = getDomainUrl('calendar', '/calendar')}
                 className="mt-8 h-11 w-full text-sm"
               >
                 Continuer vers l&apos;application

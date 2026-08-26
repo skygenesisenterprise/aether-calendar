@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/utils"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/utils"
 )
 
 const dockerSocket = "/var/run/docker.sock"
@@ -70,21 +70,21 @@ func dockerGetStream(path string) (io.ReadCloser, error) {
 func mapServiceToContainer(service string) string {
 	switch service {
 	case "server":
-		return "zenthcloud-server"
+		return "aether-calendar-server"
 	case "worker":
-		return "zenthcloud-worker"
+		return "aether-calendar-worker"
 	case "postgresql", "postgres":
-		return "zenthcloud-postgresql"
+		return "aether-calendar-postgresql"
 	case "redis":
-		return "zenthcloud-redis"
+		return "aether-calendar-redis"
 	case "rabbitmq":
-		return "zenthcloud-rabbitmq"
+		return "aether-calendar-rabbitmq"
 	case "meilisearch":
-		return "zenthcloud-meilisearch"
+		return "aether-calendar-meilisearch"
 	case "nginx":
-		return "zenthcloud-nginx"
+		return "aether-calendar-nginx"
 	default:
-		return "zenthcloud-" + service
+		return "aether-calendar-" + service
 	}
 }
 
@@ -352,8 +352,8 @@ func (h *apiHandler) getAdminSettings(c *gin.Context) {
 	utils.Success(c, http.StatusOK, gin.H{
 		"siteName":          "The Etheria Times",
 		"siteDescription":   "L'information au service du citoyen",
-		"siteUrl":           "https://zenthcloud.com",
-		"email":             "contact@zenthcloud.com",
+		"siteUrl":           "https://aether-calendar.com",
+		"email":             "contact@aether-calendar.com",
 		"smtpHost":          "",
 		"smtpPort":          "587",
 		"smtpUser":          "",

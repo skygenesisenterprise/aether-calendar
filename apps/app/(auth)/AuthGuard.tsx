@@ -3,7 +3,6 @@
 import * as React from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { routing } from "@/i18n/routing";
 import { RouteTransition } from "@/components/route-transition";
 import { getDomainUrl } from "@/lib/domains";
 
@@ -27,16 +26,15 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
     if (isLoading) return;
 
-    // Unauthenticated users: only allow public auth routes (login, register)
+    // Unauthenticated users: only allow public auth routes (login)
     if (!isAuthenticated && !isPublicAuthRoute) {
-      window.location.href = getDomainUrl('main', `/${routing.defaultLocale}`);
+      window.location.href = getDomainUrl("sso", "/login");
       return;
     }
 
-    // Authenticated users on non-auth routes return to the public platform.
+    // Authenticated users on non-auth routes go back to the calendar.
     if (isAuthenticated && !isAllowedAuthenticatedRoute) {
-      const locale = routing.defaultLocale;
-      window.location.href = getDomainUrl("main", `/${locale}`);
+      window.location.href = getDomainUrl("calendar", "/calendar");
     }
   }, [isAuthenticated, isLoading, isAllowedAuthenticatedRoute, isPublicAuthRoute]);
 

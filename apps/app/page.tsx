@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/context/AuthContext'
-import { routing } from '@/i18n/routing'
 
 export default function RootPage() {
   const router = useRouter()
@@ -12,7 +11,7 @@ export default function RootPage() {
   useEffect(() => {
     if (isLoading) return
 
-    router.replace(`/${routing.defaultLocale}`)
+    router.replace('/calendar')
   }, [isLoading, router])
 
   return (

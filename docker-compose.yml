@@ -34,7 +34,7 @@ services:
       worker:
         condition: service_started
     networks:
-      - zenthcloud
+      - aether-calendar
 
   # ─── API / worker (Go) ──────────────────────────────────────────────────────
   # Dev:  WORKER_COMMAND=air    → hot-reload via Air (:8080)

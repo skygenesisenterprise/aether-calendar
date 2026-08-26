@@ -10,10 +10,10 @@ import (
 	"time"
 
 	"github.com/pquerna/otp/totp"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/config"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/interfaces"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/models"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/utils"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/config"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/interfaces"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/models"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/utils"
 )
 
 type MfaService struct {

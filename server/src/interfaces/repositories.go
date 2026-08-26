@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/skygenesisenterprise/zenthcloud/server/src/models"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/models"
 )
 
 type UserRepository interface {

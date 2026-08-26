@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	redisclient "github.com/skygenesisenterprise/zenthcloud/server/internal/redis"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/interfaces"
+	redisclient "github.com/skygenesisenterprise/aether-calendar/server/internal/redis"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/interfaces"
 )
 
 type PresenceService struct {

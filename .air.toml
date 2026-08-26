@@ -9,7 +9,7 @@ testdir = "/app"
   exclude_dir  = [
     "assets", "tmp", "vendor",
     "app", "components", "config", "context",
-    "hooks", "i18n", "lib", "logs",
+    "hooks", "lib", "logs",
     "node_modules", "prisma", "public", "styles"
   ]
   exclude_file          = []

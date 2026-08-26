@@ -7,8 +7,8 @@ import (
 	"unicode"
 
 	"github.com/gin-gonic/gin"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/models"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/utils"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/models"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/utils"
 )
 
 func (h *apiHandler) listNewsletterSubscribers(c *gin.Context) {

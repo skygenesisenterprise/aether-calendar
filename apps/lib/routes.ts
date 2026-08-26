@@ -1,5 +1,5 @@
 export const LOGIN_ROUTE = "/login";
-export const DEFAULT_PLATFORM_ROUTE = "/dash";
+export const DEFAULT_PLATFORM_ROUTE = "/calendar";
 
 export const AUTH_ROUTES = [
   LOGIN_ROUTE,
@@ -8,7 +8,7 @@ export const AUTH_ROUTES = [
 ] as const;
 
 export const PLATFORM_ROUTES = [
-  "/dash",
+  "/calendar",
   DEFAULT_PLATFORM_ROUTE,
 ] as const;
 

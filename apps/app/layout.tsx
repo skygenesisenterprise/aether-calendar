@@ -18,8 +18,8 @@ const publicSans = Public_Sans({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Zenthcloud",
-    default: "Zenthcloud",
+    template: "%s | Aether Calendar",
+    default: "Aether Calendar",
   },
   icons: {
     icon: [

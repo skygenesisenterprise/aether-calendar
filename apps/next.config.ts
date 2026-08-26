@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const isProduction = process.env.NODE_ENV === "production";
 const isStaticWebBuild = process.env.BUILD_WEB_STATIC === "true";
 
@@ -17,7 +15,7 @@ const imageLocalPatterns: NonNullable<NextConfig["images"]>["localPatterns"] = [
   { pathname: "/api/v1/integrations/plex/image" },
 ];
 const imageRemotePatterns: NonNullable<NextConfig["images"]>["remotePatterns"] = [
-  { protocol: "https", hostname: "zenthcloud.com", pathname: "/**" },
+  { protocol: "https", hostname: "calendar.skygenesisenterprise.com", pathname: "/**" },
   { protocol: "https", hostname: "api.dicebear.com", pathname: "/**" },
   { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/**" },
   { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
@@ -34,7 +32,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: "../",
   },
-  allowedDevOrigins: ["zenthcloud.com", "api.zenthcloud.com", "sso.zenthcloud.com", "zenthcloud.localhost", "api.zenthcloud.localhost", "sso.zenthcloud.localhost", "studios.zenthcloud.localhost"],
+  allowedDevOrigins: [
+    "calendar.skygenesisenterprise.localhost",
+    "sso.skygenesisenterprise.localhost",
+    "api.calendar.skygenesisenterprise.localhost",
+    "calendar.skygenesisenterprise.lan",
+    "sso.skygenesisenterprise.lan",
+  ],
   outputFileTracingExcludes: {
     "*": ["test/**"],
   },
@@ -99,6 +103,4 @@ const nextConfig: NextConfig = {
   }),
 };
 
-const configWithPlugins: NextConfig = nextConfig;
-
-export default withNextIntl(configWithPlugins);
+export default nextConfig;

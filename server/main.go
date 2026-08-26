@@ -12,11 +12,11 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	redisclient "github.com/skygenesisenterprise/zenthcloud/server/internal/redis"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/config"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/middleware"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/routes"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/services"
+	redisclient "github.com/skygenesisenterprise/aether-calendar/server/internal/redis"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/config"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/middleware"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/routes"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/services"
 )
 
 type runtimeMode string

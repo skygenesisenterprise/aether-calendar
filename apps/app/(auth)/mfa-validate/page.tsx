@@ -80,7 +80,7 @@ export default function MfaValidatePage() {
 
       // Redirect to the intended destination
       const redirect = searchParams.get('redirect') || '/fr'
-      window.location.href = redirect.startsWith('http') ? redirect : getDomainUrl('main', redirect)
+      window.location.href = redirect.startsWith('http') ? redirect : getDomainUrl('calendar', redirect)
     } catch (err) {
       const newAttempts = attempts + 1
       setAttempts(newAttempts)
@@ -134,7 +134,7 @@ export default function MfaValidatePage() {
 
       // Redirect to the intended destination
       const redirect = searchParams.get('redirect') || '/fr'
-      window.location.href = redirect.startsWith('http') ? redirect : getDomainUrl('main', redirect)
+      window.location.href = redirect.startsWith('http') ? redirect : getDomainUrl('calendar', redirect)
     } catch (err) {
       const newAttempts = attempts + 1
       setAttempts(newAttempts)

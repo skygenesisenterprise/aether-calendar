@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { authApi } from "@/lib/api/auth";
 import { getOAuthLoginUrl } from "@/lib/api/oauth";
 import { saveSession, saveSessionPreferences } from "@/lib/api/session-persistence";
@@ -74,9 +74,9 @@ export function AuthForm() {
     const adminRoles = ["admin", "superadmin", "owner"];
     const hasAdminRole = user?.roles?.some((role) => adminRoles.includes(role));
     if (hasAdminRole) {
-      return "/dash";
+      return "/calendar";
     }
-    return "/channels/me";
+    return "/calendar";
   }
 
   async function handleOAuthLogin(provider: "google" | "github" | "discord" | "apple") {
@@ -131,7 +131,7 @@ export function AuthForm() {
           });
           // After registration, redirect to the console domain.
           // The first account is considered admin by default.
-          window.location.href = getDomainUrl("console", "/dash");
+          window.location.href = getDomainUrl("calendar", "/calendar");
         }
       } else {
         // Soumission du formulaire de connexion
@@ -161,8 +161,8 @@ export function AuthForm() {
             variant: "default",
           });
           const redirectPath = getRedirectPath(response.user);
-          if (redirectPath === "/dash") {
-            window.location.href = getDomainUrl("console", "/dash");
+          if (redirectPath === "/calendar") {
+            window.location.href = getDomainUrl("calendar", "/calendar");
           } else {
             router.push(redirectPath);
           }

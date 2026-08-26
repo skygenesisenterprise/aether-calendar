@@ -5,8 +5,8 @@ import (
 
 	"time"
 
-	"github.com/skygenesisenterprise/zenthcloud/server/src/models"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/utils"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/models"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/utils"
 	"gorm.io/gorm"
 )
 

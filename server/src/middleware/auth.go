@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/interfaces"
-	"github.com/skygenesisenterprise/zenthcloud/server/src/utils"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/interfaces"
+	"github.com/skygenesisenterprise/aether-calendar/server/src/utils"
 )
 
 type contextKey string
